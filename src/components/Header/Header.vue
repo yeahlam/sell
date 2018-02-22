@@ -1,6 +1,7 @@
 <template>
   <div class="header">
-      <div class=""></div>
+      <div class="">{{poiinfo.name}}</div>
+      <span class="icon-arrow_lift"></span>
   </div>
 </template>
 
@@ -8,7 +9,12 @@
 
 
 export default {
-
+  props:{
+    poiinfo:{
+      type:Object,
+      defaule:{}
+    }
+  }
 }
 </script>
 
