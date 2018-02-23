@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<script type="text/javascript">
+			! function(e) {
+				if(/Android(?:\s+|\/)(\d+\.\d+)?/.test(navigator.userAgent)) {
+					var t = parseFloat(RegExp.$1);
+					if(t > 2.3) {
+						var i = parseInt(window.screen.width) / e;
+						document.write('<meta name="viewport" content="width=' + e + ",minimum-scale=" + i + ",maximum-scale=" + i + ', target-densitydpi=device-dpi">')
+					} else {
+						document.write('<meta name="viewport" content="width=' + e + ',target-densitydpi=device-dpi">')
+					}
+				} else {
+					document.write('<meta name="viewport" content="width=' + e + ',user-scalable=no,target-densitydpi=device-dpi,minimal-ui,viewport-fit=cover">')
+				}
+			}(750);
+		</script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>sell</title>
     <link rel="stylesheet" href="./static/css/reset.css">
   </head>

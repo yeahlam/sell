@@ -4,7 +4,6 @@ v1.4.1
 2010-03-01
 Author: Richard Clark - http://richclarkdesign.com
 */
-
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -26,7 +25,7 @@ time, mark, audio, video {
     background:transparent;
 }
 
-body {
+body {-webkit-tap-highlight-color: rgba(0,0,0,0);  
     line-height:1;
 }
 
