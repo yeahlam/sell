@@ -41,9 +41,10 @@
             i {
                 width: 6px;
                 height: 6px;
-                border-radius: 3px;
+                border-radius: 6px;
                 border: 2px solid #fff;
                 float: left;
+                margin-right: 4px;
             }
         }
     }
@@ -65,6 +66,8 @@
             font-size: 25px;
             color: #fff;
             outline: none;
+            vertical-align: middle;
+            padding: 0;
         }
         .searchlogo {
             width: 24px;
@@ -89,7 +92,7 @@
             width: 100px;
             height: 100px;
             object-fit: cover;
-            border-radius:5px;
+            border-radius: 5px;
         }
     }
     .showname {
@@ -109,6 +112,10 @@
                 color: #fff;
                 font-size: 40px;
             }
+            span.act{
+                color: red;
+               
+            }
         }
         .favfont {
             font-size: 22px;
@@ -117,27 +124,32 @@
         }
     }
 }
-.bottom-wrapper{
-    padding:0 20px;
+
+.bottom-wrapper {
+    padding: 0 20px;
     margin-top: 22px;
     height: 32px;
-    .logo{float: left;}
-    .detail{
+    .logo {
+        float: left;
+    }
+    .detail {
         margin-left: 12px;
-    float: left;
-    font:22px/32px "microsoft yahei";
-    color:#fff;
+        float: left;
+        font: 22px/32px "microsoft yahei";
+        color: #fff;
     }
-    .activenum{font:22px/32px "microsoft yahei";
-    color:#fff;
-    float: right;
-    span{
-        font-size:32px;
-        line-height:32px;
-        vertical-align:middle;
-    }
+    .activenum {
+        font: 22px/32px "microsoft yahei";
+        color: #fff;
+        float: right;
+        span {
+            font-size: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+        }
     }
 }
+
 .bg-wrapper {
     position: absolute;
     width: 100%;
@@ -151,3 +163,79 @@
         object-fit: cover;
     }
 }
+
+.detail-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(98, 98, 98, 0.8);
+    z-index: 2;
+    overflow: scroll;
+    .box {
+        text-align: center;
+        margin: 86px 40px 0;
+        min-height: 900px;
+        background: url(detailbg.jpg) 0 0/contain;
+        border-radius: 10px;
+        .logo {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 80px;
+            width: 120px;
+            height: 120px;
+            display: inline-block;
+            img {
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+            }
+        }
+        h3 {
+            font-size: 30px;
+            margin-top: 26px;
+            color: #fff;
+        }
+        .desc {
+            color: #bababc;
+            font-size: 22px;
+            line-height: 46px;
+        }
+        .scoretext{
+            color:#fff;
+            height: 20px;
+            font-size:20px;
+        }
+        .Star{
+            display:inline-block;
+            margin-top: 12px;
+        }
+        .bottom {
+            margin: 45px 40px 0;
+            border-top: 1px solid #626064;
+            padding-top: 40px;
+            .bdesc {
+                height: 32px;
+                font-size: 22px;
+                line-height: 32px;
+                color: #fff;
+                text-align: left;
+                img {
+                    vertical-align: middle;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+    .close {
+        width: 80px;
+        height: 80px;
+        margin: 40px auto 0;
+        background: url(icon_mergeAccount_close@3x.png) 0 0/contain;
+    }
+}
+.fadein-enter-active,.fadein-leave-active{transition:1s;}
+.fadein-enter-to,.fadein-leave{opacity:1; transform:translateX(0);}
+.fadein-leave-to,.fadein-enter{opacity:0; transform:translateX(100%);}
+

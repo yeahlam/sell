@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 	import myHeader from './components/Header/Header'
 	import myNav from './components/Nav/Nav'
 
