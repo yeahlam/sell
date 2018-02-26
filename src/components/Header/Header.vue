@@ -61,7 +61,7 @@
 </template>
 
 <script>
-	import Star from '../Star/Star';
+	import Star from '@components/Star/Star';
 	export default {
 		props: {
 			poiinfo: {

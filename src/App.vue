@@ -8,8 +8,8 @@
 
 <script>
 
-	import myHeader from './components/Header/Header'
-	import myNav from './components/Nav/Nav'
+	import myHeader from '@components/Header/Header'
+	import myNav from '@components/Nav/Nav'
 
 	export default {
 		name: 'App',
@@ -28,7 +28,7 @@
 				.then(function(data) {
 					if(data.data.code == 0) {
 						that.poiinfo = data.data.data.poi_info
-						console.log(that.poiinfo)
+						console.log(data.data.data)
 					}
 				}).catch(function() {
 
