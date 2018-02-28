@@ -1,0 +1,77 @@
+.cart {
+    height: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+    .bottomcar {
+        background: #514f4e;
+        height: 100px;
+        display: flex;
+        .left-wrap {
+            flex: 1;
+            height: 100px;
+            .carlogo {
+                width: 100px;
+                height: 100px;
+                position: relative;
+                top: -28px;
+                border-radius: 50px;
+                background: #666666;
+                left: 20px;
+                text-align: center;
+                span {
+                    font-size: 56px;
+                    color: #c4c4c4;
+                    line-height: 100px;
+                }
+                .icon-num{
+                    position: absolute; right: 0;top: 0;
+                    width: 30px;height: 30px;
+                    background:red;
+                    font-size:18px;
+                    line-height:30px;
+                    text-align:center;
+                    border-radius:15px;
+                    color:#fff;
+                }
+            }
+            .carlogo.have{
+                background:#ffd161;
+                span{
+                    color:#333;
+                }
+            }
+            .pricedetail {
+                position: absolute;
+                left: 146px;
+                top: 0;
+                font-size: 24px;
+                color: #bab9b9;
+                .psprice{line-height:100px;}
+                .totalprice{
+                    font-size:36px;
+                    line-height:60px;
+                    color:#fff;
+                }
+            }
+            .pricedetail.have{
+                .psprice{line-height:30px;}
+            }
+            
+        }
+        .right-wrap {
+            height: 100px;
+            flex: 0 0 200px;
+            font-size: 30px;
+            line-height: 100px;
+            font-weight: bold;
+            text-align: center;
+            color: #bab9b9;
+        }
+        .right-wrap.have{
+            background:#ffd161;
+            color:#333;
+        }
+    }
+}

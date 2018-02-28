@@ -29,20 +29,31 @@
 								<h4>{{item.name}}</h4>
 								<img v-if="item.product_label_picture" class="tj" :src="item.product_label_picture" />
 								<p class="detailp1">{{item.month_saled_content}} {{item.praise_content}}</p>
-								<p :a=returnindex class="price"><span>¥{{item.praise_num}}</span>/{{item.unit}}</p>
+								<p :a=returnindex class="price"><span>¥{{item.min_price}}</span>/{{item.unit}}</p>
+								<div class="addcontrol">
+									<Addcontrol :foods="item"></Addcontrol>
+								</div>
 							</div>
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</div>
+		<Cart :selectgoods="selectgoods" :poiinfo="poiinfo"></Cart>
+		
 	</div>
 </template>
 
 <script>
 	import bscroll from 'better-scroll'
+	import Cart from '@components/Cart/Cart'
+	import Addcontrol from '@components/Addcontrol/Addcontrol'
 	export default {
 		props: {},
+		components:{
+			Cart,
+			Addcontrol
+		},
 		data() {
 			return {
 				foodtag: [],
@@ -50,7 +61,8 @@
 				menuscoll: {},
 				goodsscroll: {},
 				scrollY: 0,
-				listheight: []
+				listheight: [],
+				poiinfo:{}
 			}
 		},
 		created() {
@@ -61,7 +73,7 @@
 
 						that.foodtag = data.data.data.food_spu_tags
 						that.container = data.data.data.container_operation_source
-						console.log(that.container)
+						that.poiinfo=data.data.data.poi_info
 						that.$nextTick(() => {
 							that.initbscroll()
 
@@ -78,7 +90,7 @@
 					click: true
 				})
 				this.goodsscroll = new bscroll(this.$refs.goodsscroll, {
-					probeType: 3
+					probeType: 3,click: true
 				})
 				this.calqujian()
 				this.goodsscroll.on('scroll', (pos) => {
@@ -87,7 +99,6 @@
 			},
 			calqujian() {
 				var ofood = this.$refs.goodsscroll.getElementsByClassName('sort-item');
-				console.log(ofood)
 				var sumheight = 0
 				var arr = [0]
 				for(let i = 0; i < ofood.length; i++) {
@@ -98,7 +109,6 @@
 
 			},
 			gotowhere(arg) {
-				console.log(arg)
 
 				this.goodsscroll.scrollToElement(this.$refs.goodsscroll.getElementsByClassName('sort-item')[arg], 200)
 			}
@@ -110,12 +120,25 @@
 
 					var h1 = this.listheight[i]
 					var h2 = this.listheight[i + 1]
-					console.log(h1, h2, this.scrollY)
+					
 					if(this.scrollY >= h1 && this.scrollY < h2) {
 						return i
 					}
 				}
 
+			},
+			selectgoods(){
+				var arr=[]
+				this.foodtag.forEach((item)=>{
+					item.spus.forEach((item)=>{
+						if(item.count){
+							arr.push(item)
+						}
+						
+					})
+				})
+				
+				return arr
 			}
 		}
 	}

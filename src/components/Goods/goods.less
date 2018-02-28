@@ -12,6 +12,7 @@
     height: 100%;
     overflow: hidden;
     .menusitem {
+        line-height:0;
         padding: 34px 22px;
         text-align: center;
         color: #333;
@@ -54,8 +55,9 @@
     }
 
     .goods-item {
-        
+        position: relative;
         display: flex;
+        margin-bottom: 20px;
         .logo {
             flex: 0 0 180;
             img {
@@ -80,11 +82,16 @@
                 color: #bfbfbf;
                 margin-top: 18px;
             }
+            .addcontrol{
+               float: right;
+               margin-right: 20px;
+            }
             .price {
                 span {
                     color: #fb4e44;
                     font-size: 31px;
                     font-weight: bold;
+                    
                 }
             }
         }
