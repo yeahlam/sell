@@ -1,13 +1,17 @@
 <template>
 	<div class="addcontrol">
-		<div class="yuan add" v-show="foods.count>0" @click="reduce">
+		<transition name="fadein">
+		<div class="yuan reduce" v-show="foods.count>0" @click="reduce">
 			<span class="icon-remove_circle_outline"></span>
 		</div>
+		</transition>
 
 		<div class="num" v-show="foods.count>0">{{foods.count}}</div>
-		<div class="yuan reduce" @click="add">
-			<span class="icon-add_circle"></span>
-		</div>
+		
+			<div class="yuan add" @click="add">
+				<span class="icon-add_circle"></span>
+			</div>
+		
 	</div>
 </template>
 
@@ -67,4 +71,9 @@
 			vertical-align: top;
 		}
 	}
+.fadein-enter-active,.fadein-leave-active{transition:0.5s;}
+.fadein-enter-to,.fadein-leave{opacity:1; transform:translateX(0);}
+.fadein-leave-to,.fadein-enter{opacity:0; transform:translateX(100%) rotate(-180deg);}
+
+
 </style>
