@@ -52,7 +52,8 @@
 		props: {},
 		components:{
 			Cart,
-			Addcontrol
+			Addcontrol,
+			bscroll
 		},
 		data() {
 			return {
@@ -131,7 +132,7 @@
 				var arr=[]
 				this.foodtag.forEach((item)=>{
 					item.spus.forEach((item)=>{
-						if(item.count){
+						if(item.count>0){//
 							arr.push(item)
 						}
 						
