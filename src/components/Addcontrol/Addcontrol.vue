@@ -1,14 +1,14 @@
 <template>
 	<div class="addcontrol">
 		<transition name="fadein">
-		<div class="yuan reduce" v-show="foods.count>0" @click="reduce">
+		<div class="yuan reduce" v-show="foods.count>0" @click.stop.prev="reduce">
 			<span class="icon-remove_circle_outline"></span>
 		</div>
 		</transition>
 
 		<div class="num" v-show="foods.count>0">{{foods.count}}</div>
 		
-			<div class="yuan add" @click="add">
+			<div class="yuan add" @click.stop.prev="add">
 				<span class="icon-add_circle"></span>
 			</div>
 		

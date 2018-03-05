@@ -173,6 +173,7 @@
     background: rgba(98, 98, 98, 0.8);
     z-index: 2;
     overflow: scroll;
+    z-index:9;
     .box {
         text-align: center;
         margin: 86px 40px 0;
@@ -234,8 +235,9 @@
         margin: 40px auto 0;
         background: url(icon_mergeAccount_close@3x.png) 0 0/contain;
     }
+    
 }
-.fadein-enter-active,.fadein-leave-active{transition:1s;}
-.fadein-enter-to,.fadein-leave{opacity:1; transform:translateX(0);}
-.fadein-leave-to,.fadein-enter{opacity:0; transform:translateX(100%);}
+.hfadein-enter-active,.hfadein-leave-active{transition:1s;}
+.hfadein-enter-to,.hfadein-leave{opacity:1; transform:translateY(0);}
+.hfadein-leave-to,.hfadein-enter{opacity:0; transform:translateY(100%);}
 

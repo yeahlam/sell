@@ -38,7 +38,7 @@
 			<div class="bg-wrapper">
 				<img :src="poiinfo.head_pic_url" />
 			</div>
-			<transition name="fadein">
+			<transition name="hfadein">
 				<div class="detail-wrapper" v-if="detailshow">
 					<div class="box">
 						<div class="logo">

@@ -21,7 +21,7 @@
 				<li class="sort-item" v-for="item in foodtag">
 					<h3>{{item.name}}</h3>
 					<ul>
-						<li class="goods-item" v-for="(item,index) in item.spus">
+						<li class="goods-item" v-for="(item,index) in item.spus" @click="tapitem(item)">
 							<div class="logo">
 								<img height="180" :src="item.picture" />
 							</div>
@@ -40,7 +40,7 @@
 			</ul>
 		</div>
 		<Cart :selectgoods="selectgoods" :poiinfo="poiinfo"></Cart>
-		
+		<Food :Food="thetapitem" ref="foodview">123</Food>
 	</div>
 </template>
 
@@ -48,12 +48,15 @@
 	import bscroll from 'better-scroll'
 	import Cart from '@components/Cart/Cart'
 	import Addcontrol from '@components/Addcontrol/Addcontrol'
+	import Food from '@components/Food/Food'
+	import Vue from 'vue'
 	export default {
 		props: {},
 		components:{
 			Cart,
 			Addcontrol,
-			bscroll
+			bscroll,
+			Food
 		},
 		data() {
 			return {
@@ -63,7 +66,8 @@
 				goodsscroll: {},
 				scrollY: 0,
 				listheight: [],
-				poiinfo:{}
+				poiinfo:{},
+				thetapitem:{}
 			}
 		},
 		created() {
@@ -86,6 +90,10 @@
 				})
 		},
 		methods: {
+			tapitem(arg){
+				this.thetapitem=arg;
+				this.$refs.foodview.openview()
+			},
 			initbscroll() {
 				this.menuscoll = new bscroll(this.$refs.menuscroll, {
 					click: true
