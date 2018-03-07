@@ -3,7 +3,7 @@
 		<div class="wrapper-menus" ref="menuscroll">
 			<ul>
 				<li class="menusitem" :class="{act:returnindex==0}" @click="gotowhere(0)">
-					<img :src="container.tag_icon"  /> {{container.tag_name}}
+					<img :src="container.tag_icon" /> {{container.tag_name}}
 				</li>
 				<li class="menusitem" v-for="(item,index) in foodtag" :class="{act:returnindex==index+1}" @click="gotowhere(index+1)">
 
@@ -52,7 +52,7 @@
 	import Vue from 'vue'
 	export default {
 		props: {},
-		components:{
+		components: {
 			Cart,
 			Addcontrol,
 			bscroll,
@@ -66,8 +66,8 @@
 				goodsscroll: {},
 				scrollY: 0,
 				listheight: [],
-				poiinfo:{},
-				thetapitem:{}
+				poiinfo: {},
+				thetapitem: {}
 			}
 		},
 		created() {
@@ -78,7 +78,7 @@
 
 						that.foodtag = data.data.data.food_spu_tags
 						that.container = data.data.data.container_operation_source
-						that.poiinfo=data.data.data.poi_info
+						that.poiinfo = data.data.data.poi_info
 						that.$nextTick(() => {
 							that.initbscroll()
 
@@ -90,8 +90,8 @@
 				})
 		},
 		methods: {
-			tapitem(arg){
-				this.thetapitem=arg;
+			tapitem(arg) {
+				this.thetapitem = arg;
 				this.$refs.foodview.openview()
 			},
 			initbscroll() {
@@ -99,12 +99,18 @@
 					click: true
 				})
 				this.goodsscroll = new bscroll(this.$refs.goodsscroll, {
-					probeType: 3,click: true
+					probeType: 3,
+					click: true
 				})
+				this.$store.state.recordScrollY1 = this.goodsscroll
+
+				this.goodsscroll.scrollTo(0, -this.$store.state.scrollY)
+				this.scrollY = this.$store.state.scrollY
 				this.calqujian()
 				this.goodsscroll.on('scroll', (pos) => {
-					this.scrollY = Math.abs(pos.y)
+					this.$store.state.scrollY = this.scrollY = Math.abs(pos.y)
 				})
+
 			},
 			calqujian() {
 				var ofood = this.$refs.goodsscroll.getElementsByClassName('sort-item');
@@ -129,24 +135,24 @@
 
 					var h1 = this.listheight[i]
 					var h2 = this.listheight[i + 1]
-					
+
 					if(this.scrollY >= h1 && this.scrollY < h2) {
 						return i
 					}
 				}
 
 			},
-			selectgoods(){
-				var arr=[]
-				this.foodtag.forEach((item)=>{
-					item.spus.forEach((item)=>{
-						if(item.count>0){//
+			selectgoods() {
+				var arr = []
+				this.foodtag.forEach((item) => {
+					item.spus.forEach((item) => {
+						if(item.count > 0) { //
 							arr.push(item)
 						}
-						
+
 					})
 				})
-				
+
 				return arr
 			}
 		}

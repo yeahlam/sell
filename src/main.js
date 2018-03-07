@@ -7,6 +7,7 @@ import App from './App'
 import myGoods from './components/Goods/Goods'
 import myRatings from './components/Ratings/Ratings'
 import mySeller from './components/Seller/Seller'
+import store from './components/store/'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios=Axios;
@@ -30,6 +31,7 @@ new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
-  router
+  router,
+  store
   
 })

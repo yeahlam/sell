@@ -1,13 +1,24 @@
 <template>
 	<div class="nav">
-		<router-link to='/goods' class="goods nav-item">点菜<i></i></router-link>
-		<router-link to='/ratings' class="ratings nav-item">评价<i></i></router-link>
-		<router-link to='/seller' class="seller nav-item">商家<i></i></router-link>
+		<router-link @click.native="c1" to='/goods' class="goods nav-item">点菜<i></i></router-link>
+		<router-link @click.native="c2" to='/ratings' class="ratings nav-item">评价<i></i></router-link>
+		<router-link @click.native="c3" to='/seller' class="seller nav-item">商家<i></i></router-link>
 	</div>
 </template>
 
 <script>
-	export default {};
+	export default {
+		methods:{
+			c1(){
+			},
+			c2(){
+			this.$store.state.recordScrollY1.destroy()
+			},
+			c3(){
+			this.$store.state.recordScrollY1.destroy()
+			}
+		}
+	};
 </script>
 
 <style lang="less">
